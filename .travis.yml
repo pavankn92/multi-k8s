@@ -15,7 +15,8 @@ after_success:
     - docker build -t pkn2009/multi-worker ./worker
     # Login to Docker CLI
     # Push the images to Docker hub
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdi    - docker push pkn2009/multi-clinet
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    - docker push pkn2009/multi-clinet
     - docker push pkn2009/multi-nginx
     - docker push pkn2009/multi-server
     - docker push pkn2009/multi-nginx
